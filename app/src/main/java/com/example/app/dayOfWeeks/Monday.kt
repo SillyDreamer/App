@@ -1,4 +1,4 @@
-package com.example.app
+package com.example.app.dayOfWeeks
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,28 +9,30 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.friday.*
+import com.example.app.Adapter
+import com.example.app.Predmet
+import com.example.app.R
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 
 
-class FragmentPage : Fragment() {
+class Monday : Fragment() {
     val ARG_PAGE = "ARG_PAGE"
+    var parse : ArrayList<Predmet> = arrayListOf()
 
     private var mPage: Int = 0
 
-    fun newInstance(page: Int): FragmentPage {
+    fun newInstance(page: Int): Monday {
         val args = Bundle()
         args.putInt(ARG_PAGE, page)
-        val fragment = FragmentPage()
-        fragment.setArguments(args)
+        val fragment = Monday()
+        fragment.arguments = args
         return fragment
     }
 
-    @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
@@ -45,19 +47,38 @@ class FragmentPage : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.friday, container, false)
-        var list = arrayListOf<Predmet>(Predmet("name", "type", "teacher", "time", "hall"))
-        val adapter = Adapter(list)
+        val root = inflater.inflate(R.layout.day, container, false)
+        //parseJson()
+        val adapter = Adapter(parse)
         var recycle = root.findViewById<RecyclerView>(R.id.recycle_view)
         recycle.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         recycle.adapter = adapter
-        return recycle
+        return root
     }
+
+
 
     fun parseJson() {
         var str = getAssetJsonData(context!!)
-        var arr = JSONObject(str).getJSONArray("понедельник")
-        Log.e("print", arr[0].toString())
+        lateinit var arr : JSONArray
+        if (mPage == 1) {
+            arr = JSONObject(str).getJSONArray("понедельник")
+        }
+        else {
+            arr = JSONObject(str).getJSONArray("вторник")
+        }
+        arr.let { 0.until(it.length()).map { i -> it.optJSONObject(i) } }
+            .map {
+                parse.add(
+                    Predmet(
+                        it.get("name").toString(),
+                        it.get("type").toString(),
+                        it.get("teacher").toString(),
+                        it.get("timeStart").toString(),
+                        it.get("hall").toString()
+                    )
+                )
+            }
     }
 
     fun getAssetJsonData(context: Context): String? {
@@ -72,7 +93,6 @@ class FragmentPage : Fragment() {
             ioException.printStackTrace()
             return null
         }
-        // print the data
         Log.e("data", json)
         return json
     }
