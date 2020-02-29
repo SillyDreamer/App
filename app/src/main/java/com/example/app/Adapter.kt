@@ -1,5 +1,6 @@
 package com.example.app
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,9 +20,13 @@ class Adapter(private var list: ArrayList<Predmet>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.name.text = list[position].name
-        holder.type.text = list[position].time
+        holder.type.text = list[position].type
+        if (list[position].type == "Лекция")
+            holder.line.setBackgroundColor(Color.GREEN)
+        else if (list[position].type == "Лабораторная работа")
+            holder.line.setBackgroundColor(Color.BLUE)
         holder.teacher.text = list[position].teacher
-        holder.hall.text = list[position].hall
+        holder.hall.text = "Аудитория " + list[position].hall
         holder.time.text = list[position].time
 
     }
@@ -32,6 +37,7 @@ class Adapter(private var list: ArrayList<Predmet>) :
         var teacher: TextView = itemView.findViewById(R.id.teacher)
         var time: TextView = itemView.findViewById(R.id.time)
         var hall: TextView = itemView.findViewById(R.id.hall)
+        val line: View = itemView.findViewById(R.id.view1)
 
     }
 

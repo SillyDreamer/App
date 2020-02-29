@@ -13,12 +13,21 @@
     card_view:cardUseCompatPadding="true">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <View
+            android:layout_marginTop="10dp"
+            android:id="@+id/view1"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="5dp"/>
+
 
             <LinearLayout
+                android:layout_weight="10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -39,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
+
                     android:layout_marginBottom="5dp"
                     tools:text="лекция" />
 
@@ -48,7 +57,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
                     tools:text="Фамилия препода" />
 
@@ -57,14 +65,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
+
                     android:layout_marginBottom="5dp"
                     tools:text="Аудитория 306" />
 
             </LinearLayout>
 
         <LinearLayout
-            android:layout_marginLeft="50dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">

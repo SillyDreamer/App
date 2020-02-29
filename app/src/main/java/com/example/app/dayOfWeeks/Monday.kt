@@ -38,7 +38,6 @@ class Monday : Fragment() {
         if (arguments != null) {
             mPage = arguments!!.getInt(ARG_PAGE)
         }
-        parseJson()
     }
 
     @SuppressLint("WrongConstant")
@@ -48,7 +47,8 @@ class Monday : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.day, container, false)
-        //parseJson()
+        parse.clear()
+        parseJson()
         val adapter = Adapter(parse)
         var recycle = root.findViewById<RecyclerView>(R.id.recycle_view)
         recycle.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
@@ -61,11 +61,12 @@ class Monday : Fragment() {
     fun parseJson() {
         var str = getAssetJsonData(context!!)
         lateinit var arr : JSONArray
-        if (mPage == 1) {
-            arr = JSONObject(str).getJSONArray("понедельник")
-        }
-        else {
-            arr = JSONObject(str).getJSONArray("вторник")
+        when (mPage) {
+            1 -> arr = JSONObject(str!!).getJSONArray("понедельник")
+            2 -> arr = JSONObject(str!!).getJSONArray("вторник")
+            3 -> arr = JSONObject(str!!).getJSONArray("среда")
+            4 -> arr = JSONObject(str!!).getJSONArray("четверг")
+            5 -> arr = JSONObject(str!!).getJSONArray("пятница")
         }
         arr.let { 0.until(it.length()).map { i -> it.optJSONObject(i) } }
             .map {
@@ -74,7 +75,7 @@ class Monday : Fragment() {
                         it.get("name").toString(),
                         it.get("type").toString(),
                         it.get("teacher").toString(),
-                        it.get("timeStart").toString(),
+                        it.get("timeStart").toString() + " - " + it.get("timeEnd"),
                         it.get("hall").toString()
                     )
                 )
