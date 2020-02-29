@@ -22,6 +22,90 @@
   ],
   "вторник":
   [
-
+    {
+      "timeStart": "9:00",
+      "timeEnd": "10:25",
+      "type": "Семенар",
+      "mark": "Контрольная",
+      "groups": [452],
+      "teacher": "dccxxvi726762@gmail.com",
+      "hall": "227",
+      "name": "Линейная алгебра"
+    },
+    {
+      "timeStart": "10:40",
+      "timeEnd": "12:10",
+      "type": "Семенар",
+      "mark": "Сдача задания",
+      "groups": [452],
+      "teacher": "dccxxvi726762@gmail.com",
+      "hall": "726",
+      "name": "Физика твердого тела"
+    }
+  ],
+  "Среда":
+  [
+    {
+      "timeStart": "9:00",
+      "timeEnd": "10:25",
+      "type": "Семенар",
+      "mark": "Контроль посещаймости",
+      "groups": [452],
+      "teacher": "dccxxvi726762@gmail.com",
+      "hall": "227",
+      "name": "Линейная алгебра"
+    },
+    {
+      "timeStart": "10:40",
+      "timeEnd": "12:10",
+      "type": "Лабораторная работа",
+      "mark": "Выставление зачета",
+      "groups": [452],
+      "teacher": "dccxxvi726762@gmail.com",
+      "hall": "726",
+      "name": "Физика твердого тела"
+    }
+  ],
+  "Четверг":
+  [
+    {
+      "timeStart": "9:00",
+      "timeEnd": "10:25",
+      "type": "Контрольная",
+      "groups": [452],
+      "teacher": "dccxxvi726762@gmail.com",
+      "hall": "227",
+      "name": "Линейная алгебра"
+    },
+    {
+      "timeStart": "10:40",
+      "timeEnd": "12:10",
+      "type": "Лабораторная работа",
+      "groups": [452],
+      "teacher": "dccxxvi726762@gmail.com",
+      "hall": "726",
+      "name": "Физика твердого тела"
+    }
+  ],
+  "Пятница":
+  [
+    {
+      "timeStart": "9:00",
+      "timeEnd": "10:25",
+      "type": "Контрольная",
+      "groups": [452],
+      "teacher": "dccxxvi726762@gmail.com",
+      "hall": "227",
+      "name": "Линейная алгебра"
+    },
+    {
+      "timeStart": "10:40",
+      "timeEnd": "12:10",
+      "type": "Лабораторная работа",
+      "groups": [452],
+      "teacher": "dccxxvi726762@gmail.com",
+      "hall": "726",
+      "name": "Физика твердого тела"
+    }
   ]
 }

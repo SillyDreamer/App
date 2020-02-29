@@ -1,0 +1,33 @@
+{
+  "dccxxvi726726@gmail.com":
+  {
+    "type": "teacher",
+    "lastName": "Беклемишев",
+    "firstName": "Дмитрий",
+    "patronymic": "Владимирович",
+    "photo": "img/beck.jpeg",
+    "phone": "+79457677675",
+    "tg": "@beck",
+    "department": "Кафедра высшей математики"
+  },
+  "alexey.stepanov@phystech.edu":
+  {
+    "type": "student",
+    "lastName": "Степанов",
+    "firstName": "Алексей",
+    "patronymic": "Игоревич",
+    "photo": "img/dcc.jpeg",
+    "tg": "@dccxxvi",
+    "group": "452"
+  },
+  "" :
+  {
+    "type": "headman",
+    "lastName": "Кочеткова",
+    "firstName": "Диана",
+    "patronymic": "",
+    "photo": "img/di.jpeg",
+    "tg": "",
+    "group": "452"
+  }
+}
